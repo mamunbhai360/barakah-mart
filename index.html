@@ -1,91 +1,63 @@
-<!doctype html>
-<html lang="bn">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Barakah Mart</title>
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Barakah Mart</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f6f7f9;color:#17202a}
-header{background:#0f5132;color:white;padding:14px 5%;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:5}
-.logo{font-size:25px;font-weight:800}.search{flex:1;max-width:600px;padding:12px 16px;border:0;border-radius:8px;font-size:15px}
-.cart{background:white;color:#0f5132;border:0;border-radius:8px;padding:11px 15px;font-weight:700;cursor:pointer}
-.hero{padding:55px 5%;background:linear-gradient(135deg,#dff5e9,#fff);display:flex;justify-content:space-between;align-items:center;gap:25px}
-.hero h1{font-size:44px;margin:0 0 12px}.hero p{font-size:18px;color:#52615a}.btn{background:#0f5132;color:#fff;border:0;padding:13px 20px;border-radius:8px;font-weight:700;cursor:pointer}
-section{padding:30px 5%}.cats,.products{display:grid;gap:16px}.cats{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}.cat{background:#fff;padding:20px;text-align:center;border-radius:12px;box-shadow:0 2px 10px #0000000b}
-.products{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px #00000012}.pic{height:160px;background:#e8eee9;display:grid;place-items:center;font-size:55px}.info{padding:14px}.price{font-size:19px;font-weight:800;margin:8px 0}.add{width:100%;padding:10px;border:0;background:#0f5132;color:#fff;border-radius:7px;cursor:pointer}
-footer{padding:25px 5%;background:#123b29;color:#fff;margin-top:25px}.modal{display:none;position:fixed;inset:0;background:#0008;z-index:10}.box{background:white;width:min(520px,92%);margin:7vh auto;padding:24px;border-radius:14px}.row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee}.pay label{display:block;padding:10px;border:1px solid #ddd;border-radius:8px;margin:8px 0}
-@media(max-width:650px){header{flex-wrap:wrap}.search{order:3;flex-basis:100%}.hero h1{font-size:34px}}
-</style>
-</head>
-<body>
-<header>
-<div class="logo">🛍️ Barakah Mart</div>
-<input id="search" class="search" placeholder="পণ্য খুঁজুন..." oninput="render()">
-<button class="cart" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
-</header>
-
-<div class="hero">
-<div><h1>Barakah Mart</h1><p>এক জায়গায় সব ধরনের পণ্য। সহজে অর্ডার করুন, ঘরে পেয়ে যান।</p><button class="btn" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button></div>
-<div style="font-size:100px">🛒</div>
-</div>
-
-<section>
-<h2>Categories</h2>
-<div class="cats">
-<div class="cat">👕<br>Fashion</div><div class="cat">📱<br>Electronics</div><div class="cat">💄<br>Beauty</div><div class="cat">🏠<br>Home</div><div class="cat">🛒<br>Grocery</div><div class="cat">👟<br>Shoes</div>
-</div>
-</section>
-
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f6f7f9;color:#17202a}header{background:#0f5132;color:#fff;padding:14px 5%;display:flex;align-items:center;gap:18px;position:sticky;top:0;z-index:5}.logo{font-size:25px;font-weight:800}.search{flex:1;max-width:600px;padding:12px 16px;border:0;border-radius:8px;font-size:15px}.cart{background:#fff;color:#0f5132;border:0;border-radius:8px;padding:11px 15px;font-weight:700;cursor:pointer}.hero{padding:50px 5%;background:linear-gradient(135deg,#dff5e9,#fff);display:flex;justify-content:space-between;align-items:center}.hero h1{font-size:42px;margin:0 0 10px}.hero p{font-size:18px;color:#52615a}.btn{background:#0f5132;color:#fff;border:0;padding:13px 20px;border-radius:8px;font-weight:700;cursor:pointer}section{padding:28px 5%}.cats,.products{display:grid;gap:16px}.cats{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}.cat{background:#fff;padding:18px;text-align:center;border-radius:12px;box-shadow:0 2px 10px #0000000b}.products{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px #00000012}.pic{height:155px;background:#e8eee9;display:grid;place-items:center;font-size:55px}.info{padding:14px}.price{font-size:19px;font-weight:800;margin:8px 0}.add{width:100%;padding:10px;border:0;background:#0f5132;color:#fff;border-radius:7px;cursor:pointer}footer{padding:28px 5%;background:#123b29;color:#fff;margin-top:25px}.modal{display:none;position:fixed;inset:0;background:#0008;z-index:10;overflow:auto}.box{background:#fff;width:min(560px,94%);margin:5vh auto;padding:24px;border-radius:14px}.row{display:flex;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid #eee}.field{width:100%;padding:11px;margin:6px 0 10px;border:1px solid #ccc;border-radius:7px}.pay label{display:block;padding:10px;border:1px solid #ddd;border-radius:8px;margin:8px 0}.note{font-size:13px;color:#666;background:#f5f5f5;padding:10px;border-radius:7px}@media(max-width:650px){header{flex-wrap:wrap}.search{order:3;flex-basis:100%}.hero h1{font-size:34px}}
+</style></head><body>
+<header><div class="logo">🛍️ Barakah Mart</div><input id="search" class="search" placeholder="পণ্য খুঁজুন..." oninput="render()"><button class="cart" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button></header>
+<div class="hero"><div><h1>Barakah Mart</h1><p>এক জায়গায় সব ধরনের পণ্য। অর্ডার করুন, ঘরে পেয়ে যান।</p><button class="btn" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button> <a class="btn" style="display:inline-block;text-decoration:none" href="https://wa.me/8801819033293?text=Assalamu%20Alaikum%2C%20Barakah%20Mart%20theke%20order%20korte%20chai." target="_blank">WhatsApp Order</a></div><div style="font-size:90px">🛒</div></div>
+<section><h2>Categories</h2><div class="cats"><div class="cat">👕<br>Fashion</div><div class="cat">📱<br>Electronics</div><div class="cat">💄<br>Beauty</div><div class="cat">🏠<br>Home</div><div class="cat">🛒<br>Grocery</div><div class="cat">👟<br>Shoes</div></div></section>
 <section id="products"><h2>Featured Products</h2><div class="products" id="grid"></div></section>
+<footer><strong>Barakah Mart</strong><br><br>🚚 Cash on Delivery available<br>🟣 bKash / 🔴 Nagad — Coming Soon<br>📱 WhatsApp: <a href="https://wa.me/8801819033293" style="color:#fff;font-weight:700" target="_blank">অর্ডার করুন</a><br><br>© 2026 Barakah Mart</footer>
 
-<footer>
-<strong>Barakah Mart</strong><br><br>
-Cash on Delivery • bKash • Nagad<br>
-© 2026 Barakah Mart
-</footer>
-
-<div id="modal" class="modal"><div class="box">
-<h2>🛒 Your Cart</h2><div id="cartItems"></div>
-<div class="row"><strong>Total</strong><strong id="total">৳0</strong></div>
-<h3>Payment Method</h3>
-<div class="pay">
-<label><input type="radio" name="pay" value="cod" checked> Cash on Delivery</label>
-<label><input type="radio" name="pay" value="bkash"> bKash</label>
-<label><input type="radio" name="pay" value="nagad"> Nagad</label>
-</div>
-<button class="btn" onclick="checkout()">Place Order</button>
-<button class="btn" style="background:#777" onclick="closeCart()">Close</button>
+<div id="detailsModal" class="modal"><div class="box">
+<h2 id="dTitle"></h2>
+<div id="dImage" style="text-align:center;margin:10px 0"></div>
+<h2 id="dPrice"></h2>
+<p id="dDesc"></p>
+<h3>Features</h3>
+<ul id="dFeatures"></ul>
+<button class="btn" id="dAdd">Add to Cart</button>
+<button class="btn" style="background:#777" onclick="closeDetails()">Close</button>
 </div></div>
-
+<div id="modal" class="modal"><div class="box"><h2>🛒 Checkout</h2><div id="cartItems"></div><div class="row"><strong>Total</strong><strong id="total">৳0</strong></div><h3>Customer Information</h3><input id="name" class="field" placeholder="আপনার নাম"><input id="phone" class="field" placeholder="মোবাইল নম্বর"><textarea id="address" class="field" rows="3" placeholder="ডেলিভারি ঠিকানা"></textarea><h3>Payment</h3><div class="pay"><label><input type="radio" name="pay" value="cod" checked> 💵 Cash on Delivery</label><label><input type="radio" name="pay" value="bkash"> 🟣 bKash (Coming Soon)</label><label><input type="radio" name="pay" value="nagad"> 🔴 Nagad (Coming Soon)</label></div><p class="note">bKash/Nagad merchant account এখনো যুক্ত হয়নি। আপাতত Cash on Delivery নির্বাচন করুন।</p><button class="btn" onclick="placeOrder()">Place Order</button> <button class="btn" style="background:#777" onclick="closeCart()">Close</button></div></div>
 <script>
 const products=[
-{id:1,n:"Premium T-Shirt",p:650,e:"👕"}, {id:2,n:"Wireless Earbuds",p:1250,e:"🎧"},
-{id:3,n:"Smart Watch",p:2200,e:"⌚"}, {id:4,n:"Ladies Handbag",p:1450,e:"👜"},
-{id:5,n:"Running Shoes",p:1800,e:"👟"}, {id:6,n:"Kitchen Set",p:950,e:"🍳"},
-{id:7,n:"Face Care Set",p:780,e:"💄"}, {id:8,n:"Grocery Pack",p:1200,e:"🛒"}
-];
-let cart=[];
-function render(){
- const q=document.getElementById('search').value.toLowerCase();
- document.getElementById('grid').innerHTML=products.filter(x=>x.n.toLowerCase().includes(q)).map(x=>`
- <div class="card"><div class="pic">${x.e}</div><div class="info"><b>${x.n}</b><div class="price">৳${x.p.toLocaleString()}</div><button class="add" onclick="add(${x.id})">Add to Cart</button></div></div>`).join('');
-}
+{id:1,n:"2-in-1 Magic Fan",p:2200,e:"🌀",img:"magic-fan.jpg"},
+{id:2,n:"Premium T-Shirt",p:650,e:"👕"},
+{id:3,n:"Wireless Earbuds",p:1250,e:"🎧"},
+{id:4,n:"Smart Watch",p:2200,e:"⌚"},
+{id:5,n:"Ladies Handbag",p:1450,e:"👜"},
+{id:6,n:"Running Shoes",p:1800,e:"👟"},
+{id:7,n:"Kitchen Set",p:950,e:"🍳"},
+{id:8,n:"Face Care Set",p:780,e:"💄"}
+];let cart=[];
+function render(){let q=document.getElementById("search").value.toLowerCase();document.getElementById("grid").innerHTML=products.filter(x=>x.n.toLowerCase().includes(q)).map(x=>`<div class="card"><div class="pic">${x.img?`<img src="${x.img}" alt="${x.n}" style="width:100%;height:100%;object-fit:cover">`:x.e}</div><div class="info"><b>${x.n}</b><div class="price">৳${x.p.toLocaleString()}</div><button class="add" onclick="add(${x.id})">Add to Cart</button><button class="add" style="margin-top:7px;background:#1769aa" onclick="details(${x.id})">বিস্তারিত দেখুন</button></div></div>`).join("")}
 function add(id){let x=cart.find(a=>a.id===id);x?x.q++:cart.push({...products.find(a=>a.id===id),q:1});update()}
-function update(){document.getElementById('count').textContent=cart.reduce((a,x)=>a+x.q,0)}
-function openCart(){renderCart();document.getElementById('modal').style.display='block'}
-function closeCart(){document.getElementById('modal').style.display='none'}
-function renderCart(){
-let total=cart.reduce((a,x)=>a+x.p*x.q,0);
-document.getElementById('cartItems').innerHTML=cart.length?cart.map(x=>`<div class="row"><span>${x.n} × ${x.q}</span><span>৳${(x.p*x.q).toLocaleString()}</span></div>`).join(''):'<p>Cart is empty.</p>';
-document.getElementById('total').textContent='৳'+total.toLocaleString()
+function update(){document.getElementById("count").textContent=cart.reduce((a,x)=>a+x.q,0)}
+function openCart(){renderCart();document.getElementById("modal").style.display="block"}function closeCart(){document.getElementById("modal").style.display="none"}
+function renderCart(){let t=cart.reduce((a,x)=>a+x.p*x.q,0);document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>`<div class="row"><span>${x.n} × ${x.q}</span><span>৳${(x.p*x.q).toLocaleString()}</span></div>`).join(""):"<p>Cart is empty.</p>";document.getElementById("total").textContent="৳"+t.toLocaleString()}
+
+function details(id){
+ const x=products.find(a=>a.id===id);
+ if(!x)return;
+ document.getElementById("dTitle").textContent=x.n;
+ document.getElementById("dPrice").textContent="৳"+x.p.toLocaleString();
+ document.getElementById("dImage").innerHTML=x.img?`<img src="${x.img}" alt="${x.n}" style="max-width:100%;width:300px;height:260px;object-fit:cover;border-radius:10px">`:`<div style="font-size:100px">${x.e}</div>`;
+ document.getElementById("dDesc").innerHTML="<b>🚨 লোডশেডিংয়ে আর কষ্ট নয়!</b><br><br>Barakah Mart নিয়ে এলো প্রিমিয়াম JYSUPER (JY-2570) Rechargeable Table Fan। ঘর, অফিস ও ভ্রমণের জন্য সুবিধাজনক।";
+ document.getElementById("dFeatures").innerHTML=[
+ "🔋 8000mAh বিশাল ব্যাটারি — সর্বোচ্চ ৬ ঘণ্টা পর্যন্ত ব্যাকআপ",
+ "⚡ ৪টি স্পিড",
+ "⏰ ১, ২, ৪ ও ৬ ঘণ্টার Timer সুবিধা",
+ "🌈 RGB Night Light",
+ "↕️ 110° Flexible Angle",
+ "🔌 USB Type-C Charging — পাওয়ার ব্যাংক বা মোবাইল চার্জার দিয়ে চার্জ করা যায়",
+ "🚚 সারা বাংলাদেশে Cash on Delivery",
+ "📱 WhatsApp Order: 01819033293"
+ ].map(v=>"<li>"+v+"</li>").join("");
+ document.getElementById("dRuntime").innerHTML="<b>⚡ স্পিড ও রান-টাইম:</b><br>১ম স্পিড: ৬ ঘণ্টা পর্যন্ত | ২য় স্পিড: প্রায় ৫ ঘণ্টা | ৩য় স্পিড: প্রায় ৪ ঘণ্টা | ৪র্থ স্পিড: প্রায় ৩ ঘণ্টা<br><small>নোট: রান-টাইম ব্যবহার, স্পিড ও ব্যাটারির অবস্থার ওপর পরিবর্তিত হতে পারে।</small>";
+ document.getElementById("dAdd").onclick=()=>{add(x.id);closeDetails()};
+ document.getElementById("detailsModal").style.display="block";
 }
-function checkout(){
-if(!cart.length)return alert('আপনার cart খালি।');
-let method=document.querySelector('input[name=pay]:checked').value;
-alert('Order received! Payment: '+method.toUpperCase()+'\\nএটি demo version—real payment gateway এখনো সংযুক্ত হয়নি।');
-cart=[];update();closeCart();
-}
-render();update();
-</script>
-</body>
-</html>
+function closeDetails(){document.getElementById("detailsModal").style.display="none"}
+
+function placeOrder(){if(!cart.length)return alert("আপনার cart খালি।");let n=document.getElementById("name").value.trim(),ph=document.getElementById("phone").value.trim(),a=document.getElementById("address").value.trim(),m=document.querySelector('input[name="pay"]:checked').value;if(!n||!ph||!a)return alert("নাম, মোবাইল নম্বর ও ঠিকানা পূরণ করুন।");if(m!=="cod")return alert("এই payment method এখনো চালু হয়নি। Cash on Delivery নির্বাচন করুন।");let t=cart.reduce((s,x)=>s+x.p*x.q,0);alert("অর্ডার গ্রহণ করা হয়েছে!\n\nনাম: "+n+"\nমোবাইল: "+ph+"\nমোট: ৳"+t.toLocaleString()+"\nPayment: Cash on Delivery");cart=[];update();closeCart()}render();update();
+</script></body></html>
