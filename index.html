@@ -26,7 +26,7 @@ footer{background:#06183b;color:#fff;text-align:center;padding:27px 15px}
 <body>
 <header><div class="nav">
 <a class="brand" href="#home"><img src="logo.png" alt="Barakha Electronic Mart"><span>Barakha Electronic Mart<small>Smart Choice, Better Life</small></span></a>
-<nav><a href="#home">হোম</a><a href="#products">পণ্য</a><a href="#contact">যোগাযোগ</a></nav>
+<nav><a href="#home">হোম</a><a href="#order-form">পণ্য</a><a href="#contact">যোগাযোগ</a></nav>
 </div></header>
 
 <section class="hero" id="home">
@@ -35,7 +35,7 @@ footer{background:#06183b;color:#fff;text-align:center;padding:27px 15px}
 <h1>Barakha Electronic Mart</h1>
 <p>মানসম্মত Electronic পণ্য — সারা বাংলাদেশে <b>Cash on Delivery</b></p>
 <a class="btn" href="https://wa.me/8801819033293?text=Barakha%20Electronic%20Mart%20এ%20অর্ডার%20করতে%20চাই">📲 WhatsApp Order</a>
-<a class="btn blue" href="#products">🛒 পণ্য দেখুন</a>
+<a class="btn blue" href="#order-form">🛒 পণ্য দেখুন</a>
 </div></section>
 
 <section class="features">
@@ -79,7 +79,41 @@ footer{background:#06183b;color:#fff;text-align:center;padding:27px 15px}
 </section>
 </main>
 
-<footer><b>Barakha Electronic Mart</b><br>Smart Choice, Better Life<br>© <span id="y"></span> Barakha Electronic Mart</footer>
+<footer><b>Barakha Electronic Mart</b><br>Smart Choice, Better Life<br>© <span id="y"></span> Barakha Electronic Mart
+<section id="order-form" class="wrap" style="margin-top:30px">
+  <h2>🛒 Customer Order Form</h2>
+  <form id="customerOrderForm" style="display:grid;gap:12px;max-width:650px">
+    <input id="customerName" type="text" placeholder="আপনার নাম" required>
+    <input id="customerPhone" type="tel" placeholder="মোবাইল নম্বর" required>
+    <textarea id="customerAddress" placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা" rows="3" required></textarea>
+    <input id="customerQty" type="number" min="1" value="1" placeholder="Quantity" required>
+    <textarea id="customerNote" placeholder="অতিরিক্ত তথ্য (ঐচ্ছিক)" rows="2"></textarea>
+    <button class="btn order" type="submit">📲 WhatsApp-এ অর্ডার করুন</button>
+  </form>
+</section>
+<script>
+document.getElementById('customerOrderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('customerName').value.trim();
+  const phone = document.getElementById('customerPhone').value.trim();
+  const address = document.getElementById('customerAddress').value.trim();
+  const qty = document.getElementById('customerQty').value;
+  const note = document.getElementById('customerNote').value.trim();
+
+  const message =
+    '🛒 নতুন অর্ডার - Barakha Electronic Mart%0A%0A' +
+    '👤 নাম: ' + encodeURIComponent(name) + '%0A' +
+    '📞 মোবাইল: ' + encodeURIComponent(phone) + '%0A' +
+    '📦 পণ্য: JYSUPER (JY-2570) Rechargeable Table Fan%0A' +
+    '🔢 Quantity: ' + encodeURIComponent(qty) + '%0A' +
+    '🏠 ঠিকানা: ' + encodeURIComponent(address) + '%0A' +
+    '📝 অতিরিক্ত তথ্য: ' + encodeURIComponent(note || 'নেই');
+
+  window.open('https://wa.me/8801819033293?text=' + message, '_blank');
+});
+</script>
+
+</footer>
 <script>
 function showDetails(){let x=document.getElementById("details");x.style.display=x.style.display==="block"?"none":"block"}
 document.getElementById("y").textContent=new Date().getFullYear();
