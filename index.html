@@ -3,162 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Barakah Mart | Online Shop</title>
+<title>Barakha Electronic Mart</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f5f7f6;color:#222}
-header{position:sticky;top:0;z-index:20;background:#087443;color:white;padding:10px 5%;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px #0002}
-.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:bold;font-size:22px}
-.logoIcon{width:44px;height:44px;border-radius:50%;background:white;display:grid;place-items:center;font-size:24px}
-.logo small{display:block;font-size:12px;opacity:.9;font-weight:normal}
-nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:bold}
-.hero{background:#e8f5ee;text-align:center}
-.banner{width:100%;max-height:560px;object-fit:cover;display:block}
-.wrap{max-width:1150px;margin:auto;padding:28px 15px}
-h2{color:#087443;font-size:30px;margin:10px 0 20px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 3px 15px #0001;transition:.2s}
-.card:hover{transform:translateY(-3px)}
-.product-visual{height:190px;border-radius:12px;background:linear-gradient(135deg,#e8f7ef,#f7fbff);display:grid;place-items:center}
-.product-visual span{font-size:88px;filter:drop-shadow(0 8px 8px #0002)}
-.card h3{font-size:18px;margin:15px 0 8px}
-.price{font-size:25px;font-weight:bold;color:#087443}
-.card p{color:#555;min-height:42px}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-button,.order{border:0;border-radius:9px;padding:11px 13px;font-weight:bold;cursor:pointer;text-decoration:none}
-button{background:#1676b9;color:white}
-.order{background:#f28a00;color:white}
-.features{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:20px 0}
-.feature{background:#fff;padding:14px 20px;border-radius:12px;box-shadow:0 2px 8px #0001}
-footer{background:#123d2d;color:#fff;text-align:center;padding:28px 15px;margin-top:25px}
-@media(max-width:650px){header{padding:8px 12px}nav a{margin-left:8px;font-size:13px}.logo{font-size:18px}.banner{max-height:430px}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f3f7ff;color:#172033}
+header{position:sticky;top:0;z-index:10;background:linear-gradient(90deg,#06194b,#075bd1);box-shadow:0 3px 15px #0003}
+.nav{max-width:1200px;margin:auto;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800}.brand img{width:50px;height:50px;object-fit:contain;background:#fff;border-radius:10px}
+.brand small{display:block;font-size:11px;opacity:.85;margin-top:4px}nav{display:flex;gap:6px;flex-wrap:wrap}nav a{color:#fff;padding:9px 12px;border-radius:8px;font-weight:bold}nav a:hover{background:#ffffff22}
+.hero{background:#eaf3ff;padding-bottom:28px}.hero>img{width:100%;max-height:560px;object-fit:cover;display:block}
+.heroBox{max-width:1050px;margin:0 auto;padding:22px;text-align:center;background:#fff;border-radius:0 0 18px 18px;box-shadow:0 7px 25px #0002}
+h1{color:#063d9f;font-size:clamp(28px,5vw,46px);margin:0 0 8px}.heroBox p{font-size:18px}
+.btn{display:inline-block;border:0;border-radius:9px;padding:11px 17px;margin:4px;background:#079c3a;color:#fff;font-weight:800;cursor:pointer}.blue{background:#075ddd}
+.features{max-width:1100px;margin:25px auto;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 15px}.feature{background:#fff;padding:18px;border-radius:13px;text-align:center;box-shadow:0 4px 16px #0001;font-weight:bold}
+.wrap{max-width:1100px;margin:auto;padding:25px 15px 45px}.title{text-align:center}.title h2{color:#073d9a;font-size:32px;margin:0}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;margin-top:20px}
+.card{background:#fff;border-radius:17px;overflow:hidden;box-shadow:0 7px 24px #0002}.card img{width:100%;height:330px;object-fit:cover;display:block}.body{padding:18px}.body h3{color:#17346e;margin:0 0 8px;font-size:21px}.price{color:#078239;font-size:22px;font-weight:900;margin:10px 0}.details{display:none;background:#eef6ff;padding:13px;border-radius:9px;margin:10px 0}
+.order{margin-top:28px;padding:28px;text-align:center;color:#fff;border-radius:17px;background:linear-gradient(135deg,#062b70,#0875dc)}.phone{font-size:30px;font-weight:900}
+footer{background:#06183b;color:#fff;text-align:center;padding:27px 15px}
+@media(max-width:700px){.nav{align-items:flex-start}.brand span{font-size:16px}nav a{font-size:13px;padding:7px}.features{grid-template-columns:1fr}.heroBox{margin:0 10px}.card img{height:290px}.phone{font-size:24px}}
 </style>
 </head>
 <body>
-<header>
-<a class="logo" href="#home"><span class="logoIcon">🛍️</span><span>Barakah Mart<small>Shop with Barakah</small></span></a>
-<nav><a href="#home">Home</a><a href="#products">Products</a><a href="#contact">Contact</a></nav>
-</header>
+<header><div class="nav">
+<a class="brand" href="#home"><img src="logo.png" alt="Barakha Electronic Mart"><span>Barakha Electronic Mart<small>Smart Choice, Better Life</small></span></a>
+<nav><a href="#home">হোম</a><a href="#products">পণ্য</a><a href="#contact">যোগাযোগ</a></nav>
+</div></header>
 
 <section class="hero" id="home">
-<img class="banner" src="banner.png" alt="Barakah Mart Banner">
+<img src="banner.png" alt="Barakha Electronic Mart banner">
+<div class="heroBox">
+<h1>Barakha Electronic Mart</h1>
+<p>মানসম্মত Electronic পণ্য — সারা বাংলাদেশে <b>Cash on Delivery</b></p>
+<a class="btn" href="https://wa.me/8801819033293?text=Barakha%20Electronic%20Mart%20এ%20অর্ডার%20করতে%20চাই">📲 WhatsApp Order</a>
+<a class="btn blue" href="#products">🛒 পণ্য দেখুন</a>
+</div></section>
+
+<section class="features">
+<div class="feature">🚚<br>সারা বাংলাদেশে COD</div>
+<div class="feature">📲<br>WhatsApp Order</div>
+<div class="feature">✅<br>সহজ ও নিরাপদ অর্ডার</div>
 </section>
 
-<div class="features">
-<div class="feature">🚚 সারা বাংলাদেশে COD</div>
-<div class="feature">📱 WhatsApp Order</div>
-<div class="feature">✅ সহজ অর্ডার</div>
-</div>
-
 <main class="wrap" id="products">
-<h2>🛒 Our Products</h2>
+<div class="title"><h2>আমাদের পণ্য</h2><p>জনপ্রিয় Electronic পণ্য</p></div>
 <div class="products">
 <article class="card">
-<div class="product-visual"><span>🌀</span></div>
-<h3>JYSUPER (JY-2570) Rechargeable Table Fan</h3>
-<div class="price">৳2,200</div>
-<p>8000mAh battery • RGB night light • Rechargeable table fan</p>
-<div class="actions">
-<button onclick="alert('8000mAh battery, RGB night light এবং rechargeable table fan')">📋 বিস্তারিত দেখুন</button>
-<a class="order" target="_blank" href="https://wa.me/8801859389618?text=আমি JYSUPER fan অর্ডার করতে চাই।">🛍️ অর্ডার করুন</a>
+<img src="fan-ad.jpg" alt="JYSUPER Rechargeable Mini Fan">
+<div class="body">
+<h3>JYSUPER JY-2570 Rechargeable Mini Fan</h3>
+<p>শক্তিশালী বাতাস, LED light ও adjustable angle—বাসা, অফিস বা দোকানের জন্য উপযোগী।</p>
+<div class="price">মূল্য জানতে কল/WhatsApp করুন</div>
+<button class="btn blue" onclick="showDetails()">📋 বিস্তারিত</button>
+<a class="btn" href="https://wa.me/8801819033293?text=আমি%20JYSUPER%20JY-2570%20Rechargeable%20Mini%20Fan%20অর্ডার%20করতে%20চাই">📲 অর্ডার</a>
+<div id="details" class="details"><b>Features:</b><ul><li>Rechargeable battery</li><li>Strong airflow</li><li>LED light</li><li>Adjustable angle</li><li>Desk/table use</li></ul></div>
+</div></article>
 </div>
-</article>
 
-    <article class="card">
-      <div class="product-visual"><span>🎧</span></div>
-      <h3>Wireless Bluetooth Earbuds</h3>
-      <div class="price">৳1,290</div>
-      <p>Clear sound • Charging case • Bluetooth</p>
-      <div class="actions">
-        <button onclick="alert('Product: Wireless Bluetooth Earbuds')">📋 বিস্তারিত দেখুন</button>
-        <a class="order" target="_blank" href="https://wa.me/8801859389618?text=আমি Wireless Bluetooth Earbuds অর্ডার করতে চাই।">🛍️ অর্ডার করুন</a>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="product-visual"><span>⌚</span></div>
-      <h3>Smart Watch</h3>
-      <div class="price">৳1,850</div>
-      <p>Fitness tracking • Notifications • Touch display</p>
-      <div class="actions">
-        <button onclick="alert('Product: Smart Watch')">📋 বিস্তারিত দেখুন</button>
-        <a class="order" target="_blank" href="https://wa.me/8801859389618?text=আমি Smart Watch অর্ডার করতে চাই।">🛍️ অর্ডার করুন</a>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="product-visual"><span>🔊</span></div>
-      <h3>Bluetooth Speaker</h3>
-      <div class="price">৳1,650</div>
-      <p>Portable • Powerful sound • USB charging</p>
-      <div class="actions">
-        <button onclick="alert('Product: Bluetooth Speaker')">📋 বিস্তারিত দেখুন</button>
-        <a class="order" target="_blank" href="https://wa.me/8801859389618?text=আমি Bluetooth Speaker অর্ডার করতে চাই।">🛍️ অর্ডার করুন</a>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="product-visual"><span>🔋</span></div>
-      <h3>Power Bank 10,000mAh</h3>
-      <div class="price">৳1,199</div>
-      <p>Fast charging • Dual USB • Compact</p>
-      <div class="actions">
-        <button onclick="alert('Product: Power Bank 10,000mAh')">📋 বিস্তারিত দেখুন</button>
-        <a class="order" target="_blank" href="https://wa.me/8801859389618?text=আমি Power Bank 10,000mAh অর্ডার করতে চাই।">🛍️ অর্ডার করুন</a>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="product-visual"><span>🔌</span></div>
-      <h3>Fast Charger + USB Cable</h3>
-      <div class="price">৳650</div>
-      <p>Fast charge • Type-C • Safe protection</p>
-      <div class="actions">
-        <button onclick="alert('Product: Fast Charger + USB Cable')">📋 বিস্তারিত দেখুন</button>
-        <a class="order" target="_blank" href="https://wa.me/8801859389618?text=আমি Fast Charger + USB Cable অর্ডার করতে চাই।">🛍️ অর্ডার করুন</a>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="product-visual"><span>💡</span></div>
-      <h3>Rechargeable Emergency Light</h3>
-      <div class="price">৳950</div>
-      <p>Rechargeable • Bright LED • Long backup</p>
-      <div class="actions">
-        <button onclick="alert('Product: Rechargeable Emergency Light')">📋 বিস্তারিত দেখুন</button>
-        <a class="order" target="_blank" href="https://wa.me/8801859389618?text=আমি Rechargeable Emergency Light অর্ডার করতে চাই।">🛍️ অর্ডার করুন</a>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="product-visual"><span>🖱️</span></div>
-      <h3>Wireless Mouse</h3>
-      <div class="price">৳550</div>
-      <p>2.4GHz wireless • Comfortable grip • USB</p>
-      <div class="actions">
-        <button onclick="alert('Product: Wireless Mouse')">📋 বিস্তারিত দেখুন</button>
-        <a class="order" target="_blank" href="https://wa.me/8801859389618?text=আমি Wireless Mouse অর্ডার করতে চাই।">🛍️ অর্ডার করুন</a>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="product-visual"><span>⌨️</span></div>
-      <h3>Wireless Keyboard</h3>
-      <div class="price">৳1,050</div>
-      <p>Slim design • Wireless • Quiet keys</p>
-      <div class="actions">
-        <button onclick="alert('Product: Wireless Keyboard')">📋 বিস্তারিত দেখুন</button>
-        <a class="order" target="_blank" href="https://wa.me/8801859389618?text=আমি Wireless Keyboard অর্ডার করতে চাই।">🛍️ অর্ডার করুন</a>
-      </div>
-    </article>
-    
-</div>
+<section class="order" id="contact">
+<h2>অর্ডার করতে যোগাযোগ করুন</h2><p>কল অথবা WhatsApp-এ পণ্যের নাম পাঠিয়ে অর্ডার করুন।</p>
+<div class="phone">01819033293</div>
+<a class="btn" href="tel:01819033293">☎️ কল করুন</a>
+<a class="btn" href="https://wa.me/8801819033293?text=আসসালামু%20আলাইকুম,%20Barakha%20Electronic%20Mart%20থেকে%20পণ্য%20অর্ডার%20করতে%20চাই।">📲 WhatsApp</a>
+</section>
 </main>
 
-<footer id="contact">
-<strong>Barakah Mart</strong><br>
-সারা বাংলাদেশে Cash on Delivery • WhatsApp Order<br><br>
-📞 WhatsApp: 01859389618
-</footer>
-</body>
-</html>
+<footer><b>Barakha Electronic Mart</b><br>Smart Choice, Better Life<br>© <span id="y"></span> Barakha Electronic Mart</footer>
+<script>
+function showDetails(){let x=document.getElementById("details");x.style.display=x.style.display==="block"?"none":"block"}
+document.getElementById("y").textContent=new Date().getFullYear();
+</script>
+</body></html>
